@@ -1,0 +1,1 @@
+This completes installation and configuration of Docker
