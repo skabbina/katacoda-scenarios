@@ -1,8 +1,5 @@
-Step 1 - Unintall existing Docker
 
-## Task
-
-CentOS 7 includes a legacy Docker version from CentOS repo.
+CentOS 7 includes a legacy version of Docker. Using legacy software versions pose a critical security risk, as the vulnerabilities and exploits are widely published.
 
 `docker version`{{execute}}
 

@@ -1,24 +1,24 @@
 {
-  "title": "Configuring Docker",
-  "description": "Deploy and configure Docker",
+  "title": "Deploying and configuring Docker",
+  "description": "Deploy and configure Docker on Kubernetes cluster nodes",
   "difficulty": "beginner",
-  "time": "5 minutes",
+  "time": "15 minutes",
   "details": {
     "steps": [
       {
-        "title": "Step 1 - Unintall existing Docker",
+        "title": "Step 1 - Cleanup legacy Docker",
         "text": "step1.md"
       },
       {
-        "title": "Step 2 - Configure Docker-CE Yum Repo",
+        "title": "Step 2 - Install updated Docker",
         "text": "step2.md"
       },
       {
-        "title": "Step 3 - Install Docker",
+        "title": "Step 3 - Configure audit",
         "text": "step3.md"
       },
       {
-        "title": "Step 4 - Configure audit",
+        "title": "Step 4 - Run CIS Docker Bench",
         "text": "step4.md"
       }
     ],

@@ -1,32 +1,22 @@
-Step 4 - Configure audit.
 
-## Task
+# Optional Step
 
-Install audit
+CIS publishes <a href='https://www.cisecurity.org/benchmark/docker/'>Docker Benchmark</a>`, which provides prescriptive guidance for establishing a secure configuration posture for Docker Engine.
 
-`yum install -y audit`{{execute}}
+However note that, kubernetes environments  *do not* comply with many of these recommendations. For instance, kubernetes and CNI containers run as root or run as privileged mode. Hence docker bench is recommended for Docker only deployments. Kubernetes bench is recommended for Kubernetes deployments. 
 
-Configure audit rules to monitor changes to docker configuration
+Run docker bench and review the results.
 
-`cat <<EOF > /etc/audit/rules.d/audit.rules
--w /usr/bin/dockerd -p wa -k docker
--w /etc/docker -p wa -k docker
--w /usr/lib/systemd/system/docker.service -p wa -k docker
--w /usr/bin/docker-containerd -p wa -k docker
--w /var/run/docker.sock -p wa -k docker
-EOF`{{execute}}
-
-Start and enable auditd service
-
-systemctl daemon-reload
-service auditd restart
-systemctl enable auditd
+```
+docker run -it --net host --pid host --userns host --cap-add audit_control \
+    -e DOCKER_CONTENT_TRUST=$DOCKER_CONTENT_TRUST \
+    -v /etc:/etc:ro \
+    -v /usr/bin/docker-containerd:/usr/bin/containerd:ro \
+    -v /usr/lib/systemd:/usr/lib/systemd:ro \
+	-v /usr/bin/runc:/usr/bin/runc:ro \
+    -v /var/lib:/var/lib:ro \
+    -v /var/run/docker.sock:/var/run/docker.sock:ro \
+    --label docker_bench_security \
+    docker/docker-bench-security
 ```{{execute}}
 
-Test the audit rules by updating a docker configuration file
-
-`touch /etc/docker/key.json`{{execute}}
-
-Verify the audit entry of the modifiction 
-
-`ausearch -k docker -ts recent`{{execute}}
