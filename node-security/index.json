@@ -1,5 +1,5 @@
 {
-  "title": "01-Node Security",
+  "title": "01-Preparing cluster nodes",
   "description": "Establish secure configuration posture for Kubernetes cluster nodes",
   "difficulty": "beginner",
   "time": "10 minutes",

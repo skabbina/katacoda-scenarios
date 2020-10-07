@@ -3,7 +3,7 @@
 
 CIS publishes [Docker Benchmark](https://www.cisecurity.org/benchmark/docker/), which provides prescriptive guidance for establishing a secure configuration posture for Docker Engine.
 
-However note that, kubernetes environments  *do not* comply with many of these recommendations. For instance, kubernetes and CNI containers run as root or run as privileged mode. Hence docker bench is recommended for Docker only deployments. Kubernetes bench is recommended for Kubernetes deployments. 
+However note that, kubernetes environments  *do not* comply with many of these recommendations. For instance, kubernetes and CNI containers run as root or run as privileged mode. Hence docker bench is recommended for Docker only deployments. In case of Kubernetes deployments, equivalent controls would be implemented through  Kubernetes Admission Controllers and other mechanisms. 
 
 Run docker bench and review the results.
 

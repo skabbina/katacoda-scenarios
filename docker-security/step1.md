@@ -3,9 +3,9 @@ CentOS 7 includes a legacy version of Docker. Using legacy software versions pos
 
 `docker version`{{execute}}
 
-Uninstall this legacy Docker version.
+Uninstall this legacy Docker Engine.
 
-`rpm -qa | grep docker | xargs yum erase -y /dev/null`{{execute}}
+`rpm -qa | grep docker | xargs yum erase -y`{{execute}}
 
 Cleanup Docker storage directories.
 

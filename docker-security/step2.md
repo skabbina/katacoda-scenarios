@@ -19,22 +19,24 @@ Install Docker Engine v18.06 compatible with Kubernetes v1.18.
 
 Configure Docker daemon to use more efficient overlay2 filestystem. Also, limit container logs to avoid filling up disk space on the host.
 
-'''
+```
 mkdir -p /etc/docker
 cat <<EOF > /etc/docker/daemon.json
 {
-  "exec-opts": ["native.cgroupdriver=systemd"],
-  "log-driver": "json-file",
-  "log-opts": {
-    "max-size": "100m",
-  },
-  "storage-driver": "overlay2",
-  "storage-opts": [
-    "overlay2.override_kernel_check=true"
-  ]
+    "exec-opts": [
+        "native.cgroupdriver=systemd"
+    ],
+    "log-driver": "json-file",
+    "log-opts": {
+        "max-size": "100m"
+    },
+    "storage-driver": "overlay2",
+    "storage-opts": [
+        "overlay2.override_kernel_check=true"
+    ]
 }
 EOF
-'''
+```
 
 Start the Docker Enginer systemd service, and enable to run on boot.
 
@@ -43,3 +45,7 @@ systemctl daemon-reload
 systemctl start docker
 systemctl enable docker
 ```{{execute}}
+
+Verify docker version
+
+`docker version`{{execute}}
