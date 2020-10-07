@@ -2,9 +2,13 @@ Step 4 - Configure audit.
 
 ## Task
 
+Install audit
+
+`yum install -y audit`{{execute}}
+
 Configure audit rules to monitor changes to docker configuration
 
-`cat <<EOF > /etc/audit/audit.d/audit.rules
+`cat <<EOF > /etc/audit/rules.d/audit.rules
 -w /usr/bin/dockerd -p wa -k docker
 -w /etc/docker -p wa -k docker
 -w /usr/lib/systemd/system/docker.service -p wa -k docker
@@ -12,9 +16,12 @@ Configure audit rules to monitor changes to docker configuration
 -w /var/run/docker.sock -p wa -k docker
 EOF`{{execute}}
 
-Restart auditd service
+Start and enable auditd service
 
-`service auditd restart`{{execute}}
+systemctl daemon-reload
+service auditd restart
+systemctl enable auditd
+```{{execute}}
 
 Test the audit rules by updating a docker configuration file
 
@@ -22,4 +29,4 @@ Test the audit rules by updating a docker configuration file
 
 Verify the audit entry of the modifiction 
 
-`ausearch -k docker -ts recent`{{execute}} 
+`ausearch -k docker -ts recent`{{execute}}

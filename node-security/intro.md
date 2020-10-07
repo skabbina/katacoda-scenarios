@@ -1,0 +1,3 @@
+Objective of this scenario is to establish essential security configurations for the cluster nodes, and prepare for Kubernetes setup. 
+
+While general principles of system hardening are universal, specific tools and methods vary for each oprating system, program and application. This scenario steps through some of the most essential configuration for CentOS 7. Refer to <pre><a href='https://www.cisecurity.org/benchmark/centos_linux/'>CIS Benchmarks for CentOS Linux</pre> full list of system hardening steps.

@@ -1,0 +1,36 @@
+{
+  "title": "01-Node Security",
+  "description": "Establish secure configuration posture for Kubernetes cluster nodes",
+  "difficulty": "beginner",
+  "time": "10 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Step 1 - Configure remote access",
+        "text": "step1.md"
+      },
+      {
+        "title": "Step 2 - Configure system time",
+        "text": "step2.md"
+      },
+      {
+        "title": "Step 3 - Configure firewall",
+        "text": "step3.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "credits": ""
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "terminal",
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "centos7"
+  }
+}

@@ -8,4 +8,6 @@ Install Docker-CE
 
 Start Docker systemd service
 
-`systemctl start docker && systemctl enable docker`{{execute}}
+systemctl start docker
+systemctl enable docker
+```{{execute}}
