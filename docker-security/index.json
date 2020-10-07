@@ -1,5 +1,5 @@
 {
-  "title": "Deploying and configuring Docker",
+  "title": "02-Deploying and configuring Docker",
   "description": "Deploy and configure Docker on Kubernetes cluster nodes",
   "difficulty": "beginner",
   "time": "15 minutes",
