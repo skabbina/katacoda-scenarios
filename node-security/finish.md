@@ -1,1 +1,1 @@
-This completes installation and configuration of Docker
+This completes essential node configurations for Kubernetes installation.
