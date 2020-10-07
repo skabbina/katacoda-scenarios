@@ -1,6 +1,3 @@
-Configure System Time
-
-## Task
 
 Time synchronization is important to support time sensitive security mechanisms and also ensures log files have consistent time records across the nodes, which aids in forensic investigations. 
 
@@ -14,6 +11,6 @@ Inspect chrony configuration file to view default time servers configured. Typic
 
 `grep -E "^(server|pool)" /etc/chrony.conf`{{execute}}
 
-Verify chrony is synchronizing and the drift in <pre>System Time</pre> is within acceptable limits.
+Verify chrony is synchronizing and the drift in `System Time` is within acceptable limits.
 
 `chronyc tracking`{{execute}}

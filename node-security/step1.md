@@ -1,6 +1,3 @@
-Configure Remote Access
-
-## Task
 
 All bets are off, if the malicious user is able to access to the cluster node. Insecure remote access mechanisms like telnet and rsh must be disabled, and ssh must be used to prevent session hijacking and sniffing of sensitive data off the network. This scenario step configures ssh settings.
 
@@ -14,6 +11,7 @@ Disallowing root logins over SSH requires system admins to authenticate using th
 
 Only specific, trusted user accounts must be allowed to ssh into the system. ssh provides four configuration options viz. AllowUsers, AllowGroups, DenyUsers and DenyGroups. Combination of these options can be used.
 
+```
 groupadd admins
 echo 'AllowGroups admins' >> /etc/ssh/sshd_config
 ```{{execute}}
