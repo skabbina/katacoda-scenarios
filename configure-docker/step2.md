@@ -36,7 +36,7 @@ cat <<EOF > /etc/docker/daemon.json
     ]
 }
 EOF
-```
+```{{execute}}
 
 Start the Docker Enginer systemd service, and enable to run on boot.
 

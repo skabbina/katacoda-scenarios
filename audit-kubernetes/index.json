@@ -1,0 +1,40 @@
+{
+  "title": "03-Configure Kubernetes Auditing",
+  "description": "Configure auditing for Kubernetes API Server and Kubelet",
+  "difficulty": "beginner",
+  "time": "15 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Step 1 - Configure API Server Auditing",
+        "text": "step1.md"
+      },
+      {
+        "title": "Step 2 - Insecure API Access",
+        "text": "step2.md"
+      },
+      {
+        "title": "Step 3 - Insecure Kubelet API Access",
+        "text": "step3.md"
+      },
+      {
+        "title": "Step 4 - Auditing Configuration Files",
+        "text": "step4.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "credits": ""
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "terminal",
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "kubernetes-cluster-running:1.18"
+  }
+}
