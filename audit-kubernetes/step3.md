@@ -3,7 +3,7 @@ Kubelet daemon provides another entry point to the Kubernetes cluster. Kubelet c
 
 Edit kubelet configuration file.
 
-`/var/lib/kubelet/config.yaml`{{edit}}
+`vim /var/lib/kubelet/config.yaml`{{execute}}
 
 ```
 authentication:
@@ -22,4 +22,4 @@ Restart kubelet daemon.
 
 Call kubelet API to query pods running on the node. 
 
-curl -ks https://localhost:10250/pods
+`curl -ks https://localhost:10250/pods`{{execute}}

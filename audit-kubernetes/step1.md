@@ -3,23 +3,23 @@
 Verify kubernetes version and cluster status.
 `kubectl version`{{execute}}
 
-Create a minimal audit policy file to log all requests at metadata level.
+Create a minimal audit policy to log all requests at metadata level.
 
 ```
 cat <<EOF > /etc/kubernetes/audit-policy.yaml
-> # Log all requests at the Metadata level.
->  apiVersion: audit.k8s.io/v1
->  kind: Policy
->  rules:
->  - level: Metadata
-> EOF
+# Log all requests at metadata level.
+ apiVersion: audit.k8s.io/v1
+ kind: Policy
+ rules:
+ - level: Metadata
+EOF
 ```{{execute}}
 
-Avoid logging request and response body, as that must expose secrets and other sensitive information. 
+Avoid logging request and response body, as that would expose secrets and other sensitive information. 
 
 Edit API Server configuration.
 
-`/etc/kubernetes/manifests/kube-apiserver.yaml`{{open}}
+`vim /etc/kubernetes/manifests/kube-apiserver.yaml`{{execute}}
 
 Add below lines to api-server arguments. Remember to maintain correct indentation.
 
@@ -28,7 +28,7 @@ Add below lines to api-server arguments. Remember to maintain correct indentatio
     - --audit-log-path=/var/log/audit.log
 ```{{copy}}
 
-Add below lines to volume mounts section.
+Add below lines in volumeMounts section.
 
 ```
     - mountPath: /etc/kubernetes/audit-policy.yaml
@@ -39,7 +39,7 @@ Add below lines to volume mounts section.
       readOnly: false
 ```{{copy}}
 
-Add below lines to volumes section.
+Add below lines in volumes section.
 
 ```
   - name: audit

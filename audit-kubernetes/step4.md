@@ -26,4 +26,4 @@ Edit Kubelet configuration file.
 
 And view the audit entry.
 
-`ausearch -k kubectl -ts recent`{{execute}}
+`ausearch -k kubelet -ts recent`{{execute}}
