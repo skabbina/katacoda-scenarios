@@ -1,0 +1,1 @@
+This completes configuration of Kubernetes service accounts.

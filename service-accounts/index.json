@@ -1,0 +1,40 @@
+{
+  "title": "04-Kubernetes Service Accounts",
+  "description": "Securing Kubernetes cluster configuration for Service Accounts",
+  "difficulty": "intermediate",
+  "time": "20 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Step 1 - Default Service Accounts",
+        "text": "step1.md"
+      },
+      {
+        "title": "Step 2 - Securing Default Service Accounts",
+        "text": "step2.md"
+      },
+      {
+        "title": "Step 3 - Configuring RBAC for Service Accounts",
+        "text": "step3.md"
+      },
+      {
+        "title": "Step 4 - Disabled Service Accounts",
+        "text": "step4.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "credits": ""
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "terminal",
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "kubernetes-cluster-running:1.18"
+  }
+}
