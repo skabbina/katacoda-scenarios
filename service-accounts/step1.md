@@ -62,9 +62,11 @@ curl -ks -H "Authorization: Bearer $TOKEN" https://${KUBERNETES_SERVICE_HOST}:${
 curl -ks -H "Authorization: Bearer $TOKEN" https://${KUBERNETES_SERVICE_HOST}:${KUBERNETES_SERVICE_PORT}/api/v1/nodes
 ```{{execute}}
 
-Exit and delete the pod.
+Exit the pod shell.
+'exit`{{execute}}
+
+And delete the pod.
 ```
-exit
 kubectl delete -f app-shell.yaml
 ```{{execute}}
 

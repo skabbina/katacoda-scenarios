@@ -1,6 +1,6 @@
 
 Note that deleting a service account would not stop the pods already started with that account.
-`kubectl delete serviceaccount demo-sa`
+`kubectl delete serviceaccount demo-sa`{{execute}}
 
 Now try accessing the with the deleted service account credentials. This would fail as unauthenticated.
 ```
@@ -11,6 +11,9 @@ NS=$(cat namespace)
 TOKEN=$(cat token)
 curl -ks -H "Authorization: Bearer $TOKEN" https://${KUBERNETES_SERVICE_HOST}:${KUBERNETES_SERVICE_PORT}/api/v1/namespaces/$NS/secrets
 ```{{execute}}
+
+Exit the pod shell.
+'exit`{{execute}}
 
 However, service account status can be disabled. API Server would only verify the token validity, but does not check the service account status with backend etcd. This is must be disabled in production.
 
@@ -34,3 +37,9 @@ NS=$(cat namespace)
 TOKEN=$(cat token)
 curl -ks -H "Authorization: Bearer $TOKEN" https://${KUBERNETES_SERVICE_HOST}:${KUBERNETES_SERVICE_PORT}/api/v1/namespaces/$NS/secrets
 ```{{execute}}
+
+Exit the pod shell.
+'exit`{{execute}}
+
+So before deleting any service account, it is recommended to identify and stop any pods started by the service account.
+`kubectl get po -A -o custom-columns='NAMESPACE:metadata.namespace,NAME:metadata.name,SERVICE-ACCOUNTS:spec.serviceAccount'`{{execute}}
