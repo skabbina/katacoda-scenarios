@@ -24,7 +24,8 @@
     ],
     "intro": {
       "text": "intro.md",
-      "credits": ""
+      "credits": "",
+      "background": "launch.sh"
     },
     "finish": {
       "text": "finish.md"
