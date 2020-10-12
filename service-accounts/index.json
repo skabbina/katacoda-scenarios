@@ -32,7 +32,7 @@
   },
   "environment": {
     "uilayout": "terminal",
-    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. \r\n Enter lauch.sh to start kubernetes cluster\u001b[m\r\n"
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. \r\nEnter launch.sh to start kubernetes cluster\u001b[m\r\n"
   },
   "backend": {
     "imageid": "kubernetes-cluster-running:1.18"
