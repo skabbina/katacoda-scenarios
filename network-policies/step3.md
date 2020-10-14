@@ -1,17 +1,17 @@
 
 Pods are deployed `non-isolated` i.e. do not have any network policies applied.
 
-Use the `+` to start a new terminal tab. Henceforth, let's refer to this as `portal tab`. Login into `portal` pod.
+Use the `+` to *open a new terminal* tab. Henceforth, let's refer to this as `portal tab`. Login into `portal` pod.
 `kubectl exec -it portal bash`{{execute}}
 
 Verify pod can communicate with any other pod and with external services.
 ```
 curl app-server:8080
-curl database:27017
-curl www.google.com
+curl database:27017 
+curl www.google.com > /dev/null
 ```{{execute}}
 
-Similarly open another terminal, henceforth `app-server tab`. Login to `app-server` pod.
+Similarly *open another terminal*, henceforth `app-server tab`. Login to `app-server` pod.
 `kubectl exec -it app-server sh`{{execute}}
 
 Install curl and test connectivity to other pods.
@@ -19,7 +19,7 @@ Install curl and test connectivity to other pods.
 apk add curl
 curl portal:80
 curl database:27017
-curl www.google.com
+curl www.google.com > /dev/null
 ```{{execute}}
 
 Switch back to the default initial terminal tab.
