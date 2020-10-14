@@ -1,5 +1,4 @@
 
-
 Docker daemon runs with root privileges. Hence it is important to audit all docker configuration files, to track any unauthorized changes.
 
 Auditing requires 

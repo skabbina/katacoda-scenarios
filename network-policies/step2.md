@@ -37,7 +37,8 @@ EOF
 kubectl create -f portal.yaml
 ```{{execute}}
 
-Deploy a mongo database, label as `green zone`.
+Deploy a mongo database, label as `green zone`
+```
 cat<<EOF > database.yaml
 apiVersion: v1
 kind: Pod
@@ -70,7 +71,7 @@ EOF
 kubectl create -f database.yaml
 ```{{execute}}
 
-Finally deploy a `mock` application server pod. This runs netcat tool to respond to HTTP requests. Mark this as `yellow zone`.
+Finally deploy a `mock` application server pod. This runs netcat tool to respond to HTTP requests. Mark this as `yellow zone`
 ```
 cat<<EOF > app-server.yaml
 apiVersion: v1

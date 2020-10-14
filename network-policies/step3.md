@@ -1,75 +1,103 @@
 
-Using `default` service accounts make it harder to configure access policies. It is recommended to use one or more custom service accounts. 
+Pods are deployed `non-isolated` i.e. do not have any network policies applied.
 
-Create a custom service account.
+Use the `+` to start a new terminal tab. Henceforth, let's refer to this as `portal tab`. Login into `portal` pod.
+`kubectl exec -it portal bash`{{execute}}
+
+Verify pod can communicate with any other pod and with external services.
 ```
-cat<<EOF > demo-sa.yaml
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: demo-sa
-EOF
-kubectl create -f demo-sa.yaml
+curl app-server:8080
+curl database:27017
+curl www.google.com
 ```{{execute}}
 
-Kubernetes Role Based Access Control (RBAC) allows fine-grained access control over cluster resources. Each service accounts must be given carefully assessed RBAC privileges to minimize risk.
+Similarly open another terminal, henceforth `app-server tab`. Login to `app-server` pod.
+`kubectl exec -it app-server sh`{{execute}}
 
-Create a Role.
+Install curl and test connectivity to other pods.
 ```
-cat<<EOF > demo-role.yaml
-apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
-metadata:
-  namespace: demo
-  name: demo-role
-rules:
-  - apiGroups: [""]
-    resources: ["pods"]
-    resourceNames: [""]
-    verbs: ["get", "list", "watch"]
-EOF
-kubectl create -f demo-role.yaml
+apk add curl
+curl portal:80
+curl database:27017
+curl www.google.com
 ```{{execute}}
 
-Bind role and the service account.
-```
-cat<<EOF > demo-binding.yaml
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  name: demo-binding
-  namespace: demo
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: Role
-  name: demo-role
-subjects:
-  - kind: ServiceAccount
-    name: demo-sa
-    namespace: demo
-EOF
-kubectl create -f demo-binding.yaml
-```{{execute}}
+Switch back to the default initial terminal tab.
 
-Create a pod with the custom service account.
+Apply a `block all` egress policy. This would ensure any new pod would not non-isolated and bypass the restrictions.
 ```
-cat<<EOF > app-shell-sa.yaml
-apiVersion: v1
-kind: Pod
+cat<<EOF > block-all-egress.yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
 metadata:
-  name: app-shell
+  name: block-all-egress
 spec:
-  serviceAccountName: demo-sa
-  containers:
-    - name: app-shell
-      image: "alpine:3"
-      command:
-        - /bin/sh
-        - -c
-        - sleep 600
+  podSelector: {}
+  egress:
+    - to:
+      ports:
+        - protocol: TCP
+          port: 53
+        - protocol: UDP
+          port: 53
+  policyTypes:
+    - Egress
 EOF
-kubectl create -f app-shell-sa.yaml
+kubectl create -f block-all-egress.yaml
 ```{{execute}}
 
-Verify the pod is started with custom service account.
-`kubectl get pods -o yaml | grep service`{{execute}}
+Now selectively allow communication between different zones.
+```
+cat<<EOF > allow-egress.yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-orange-egress
+spec:
+  podSelector:
+    matchLabels:
+      zone: orange
+  egress:
+    - to:
+        - podSelector:
+            matchLabels:
+              zone: yellow
+      ports:
+        - protocol: TCP
+          port: 8080
+  policyTypes:
+    - Egress
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-yellow-egress
+spec:
+  podSelector:
+    matchLabels:
+      zone: yellow
+  egress:
+    - to:
+        - podSelector:
+            matchLabels:
+              zone: green
+      ports:
+        - protocol: TCP
+          port: 27017
+  policyTypes
+  EOF
+  ```{{execute}}
+
+Now from the portal tab rerun commands to verify.
+```
+curl --connect-timeout 2 app-server:8080
+curl --connect-timeout 2 database:27017
+curl --connect-timeout 2 www.google.com
+```{{execute}}
+
+Similarly from app-server tab.
+```
+curl --connect-timeout 2 portal:80
+curl --connect-timeout 2 database:27017
+curl --connect-timeout 2 www.google.com
+```{{execute}}
