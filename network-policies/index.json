@@ -1,24 +1,24 @@
 {
-  "title": "04-Kubernetes Service Accounts",
-  "description": "Securing Kubernetes cluster configuration for Service Accounts",
+  "title": "05-Kubernetes Network Policies",
+  "description": "Securing Pod communication using Kubernetes network policies",
   "difficulty": "intermediate",
   "time": "20 minutes",
   "details": {
     "steps": [
       {
-        "title": "Step 1 - Default Service Accounts",
+        "title": "Step 1 - Configuring cluster and CNI",
         "text": "step1.md"
       },
       {
-        "title": "Step 2 - Securing Default Service Accounts",
+        "title": "Step 2 - Deploying test pods and services",
         "text": "step2.md"
       },
       {
-        "title": "Step 3 - Configuring RBAC for Service Accounts",
+        "title": "Step 3 - Configuring Egress Policies",
         "text": "step3.md"
       },
       {
-        "title": "Step 4 - Safely retiring Service Accounts",
+        "title": "Step 4 - Configuring Ingress Policies",
         "text": "step4.md"
       }
     ],
@@ -35,6 +35,6 @@
     "uimessage1": "\u001b[32mYour Interactive Bash Terminal. \r\nEnter launch.sh to start kubernetes cluster\u001b[m\r\n"
   },
   "backend": {
-    "imageid": "kubernetes-cluster-running:1.18"
+    "imageid": "kubernetes-cluster:1.18"
   }
 }

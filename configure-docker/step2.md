@@ -49,3 +49,9 @@ systemctl enable docker
 Verify docker version
 
 `docker version`{{execute}}
+
+Deploy a container. Docker engine downloads the image from public dockerhub repository and starts the container.
+`docker run -d nginx`{{execute}}
+
+View `dockerd` in the process tree. Notice that the dockerd, containerd and docker-shim are all running as root.
+`ps -efH`{{execute}}
