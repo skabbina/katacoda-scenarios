@@ -84,20 +84,22 @@ spec:
       ports:
         - protocol: TCP
           port: 27017
-  policyTypes
-  EOF
-  ```{{execute}}
+  policyTypes:
+    - Egress
+EOF
+kubectl create -f allow-egress.yaml
+```{{execute}}
 
 Now from the portal tab rerun commands to verify.
 ```
 curl --connect-timeout 2 app-server:8080
 curl --connect-timeout 2 database:27017
-curl --connect-timeout 2 www.google.com
+curl --connect-timeout 2 www.google.com > /dev/null
 ```{{execute}}
 
 Similarly from app-server tab.
 ```
 curl --connect-timeout 2 portal:80
 curl --connect-timeout 2 database:27017
-curl --connect-timeout 2 www.google.com
+curl --connect-timeout 2 www.google.com > /dev/null
 ```{{execute}}
