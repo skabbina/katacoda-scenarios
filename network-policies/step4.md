@@ -51,13 +51,13 @@ spec:
     - Ingress
 ```{{execute}}
 
-Repeat the connectivity tests from portal tab.
+Repeat the connectivity tests from **portal tab**.
 ```
 curl -q --connect-timeout 2 app-server:8080
 curl -q --connect-timeout 2 database:27017
 ```{{execute}}
 
-and from the app-server tab.
+and from the **app-server tab**.
 ```
 curl --connect-timeout 2 portal:80
 curl --connect-timeout 2 database:27017
