@@ -1,7 +1,7 @@
 
 Pods are deployed `non-isolated` i.e. do not have any network policies applied.
 
-Use the `+` to *open a new terminal* tab. Henceforth, let's refer to this as `portal tab`. Login into `portal` pod.
+Use the `+` to **open a new terminal** tab. Henceforth, let's refer to this as `portal tab`. Login into `portal` pod.
 `kubectl exec -it portal bash`{{execute}}
 
 Verify pod can communicate with any other pod and with external services.
@@ -11,7 +11,7 @@ curl database:27017
 curl www.google.com > /dev/null
 ```{{execute}}
 
-Similarly *open another terminal*, henceforth `app-server tab`. Login to `app-server` pod.
+Similarly **open another terminal**, henceforth `app-server tab`. Login to `app-server` pod.
 `kubectl exec -it app-server sh`{{execute}}
 
 Install curl and test connectivity to other pods.
@@ -22,7 +22,7 @@ curl database:27017
 curl www.google.com > /dev/null
 ```{{execute}}
 
-Switch back to the default initial terminal tab.
+Switch back to the **default initial terminal** tab.
 
 Apply a `block all` egress policy. This would ensure any new pod would not non-isolated and bypass the restrictions.
 ```

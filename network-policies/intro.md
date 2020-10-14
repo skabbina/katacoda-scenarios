@@ -4,7 +4,7 @@ Kubernetes network policies are application level constructs that control pod co
 
 ![Non Isolated Pods](./assets/non-isolated.png)
 
-Network policies can to restrict communication between pods, and 'isolate` the pods. Such isolation policies help contain the damage from compromised workloads.
+Network policies can to restrict communication between pods, and `isolate` the pods. Such isolation policies help contain the damage from compromised workloads.
 
 ![Isolated Pods](./assets/isolated.png)
 

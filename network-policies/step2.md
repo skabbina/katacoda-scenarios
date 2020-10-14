@@ -111,3 +111,5 @@ EOF
 kubectl create -f app-server.yaml
 ```{{execute}}
 
+Ensure all pods are in `Running` state and then Ctrl-C to break.
+`watch 'kubectl get pods'`{{execute}}
