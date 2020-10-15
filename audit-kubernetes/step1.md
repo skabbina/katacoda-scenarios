@@ -52,9 +52,10 @@ Add below lines in volumes section.
       type: FileOrCreate
 ```{{copy}}
 
-Once the editor is closed, API Server would restart *automatically* with updated configuration. 
+Once the editor is closed, API Server would restart **automatically** with updated configuration. 
 
 Wait for the API server to restart and then enter `Ctrl-C` to end.
+
 `watch 'ps -aef | grep apiserver'`{{execute}}
 
 Review generated audit logs.

@@ -1,5 +1,5 @@
 
-Kubelet daemon provides another entry point to the Kubernetes cluster. Kubelet configutation can be modified to enable unauthenticated access to node data.
+Kubelet daemons running on each cluster node, provide another entry point to the Kubernetes cluster. Kubelet configutation can be modified to enable unauthenticated access to node data. 
 
 Edit kubelet configuration file.
 

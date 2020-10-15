@@ -17,4 +17,4 @@ Cleanup Docker configuration files.
 
 Cleanup Docker run files.
 
-`rm -rf /etc/docker`{{execute}}
+`rm -rf /var/run/docker`{{execute}}

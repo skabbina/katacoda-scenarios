@@ -2,11 +2,11 @@
 
 Kubernetes API server and Kubelet daemon are running with root privileges. Hence configuration files must be audited to detect any unauthorised changes.
 
-On this Ubuntu node install audit.
+On this Ubuntu node install audit daemon.
 
 `apt install -y auditd audispd-plugins`{{execute}}
 
-Configure audit policy to watch kubernetes and kubelet configuration file changes
+Configure audit policy to watch kubernetes and kubelet configuration file changes.
 
 ```
 cat <<EOF > /etc/audit/rules.d/audit.rules
