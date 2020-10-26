@@ -1,25 +1,21 @@
 {
-  "title": "05-Kubernetes Network Policies",
-  "description": "Securing Pod communication using Kubernetes network policies",
+  "title": "06-Pod Security Policieis",
+  "description": "Implementing fine grained security controls using Pod Security Policies",
   "difficulty": "Intermediate",
   "time": "20 minutes",
   "details": {
     "steps": [
       {
-        "title": "Step 1 - Configuring cluster and CNI",
+        "title": "Step 1 - Enabling Pod Security Policies",
         "text": "step1.md"
       },
       {
-        "title": "Step 2 - Deploying test pods and services",
+        "title": "Step 2 - Configuring a policy",
         "text": "step2.md"
       },
       {
-        "title": "Step 3 - Configuring Egress Policies",
+        "title": "Step 3 - Allowing exemptions",
         "text": "step3.md"
-      },
-      {
-        "title": "Step 4 - Configuring Ingress Policies",
-        "text": "step4.md"
       }
     ],
     "intro": {
@@ -35,6 +31,6 @@
     "uimessage1": "\u001b[32mYour Interactive Bash Terminal. \u001b[m\r\n"
   },
   "backend": {
-    "imageid": "kubernetes-cluster:1.18"
+    "imageid": "kubernetes-cluster-running:1.18"
   }
 }

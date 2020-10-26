@@ -49,8 +49,8 @@ spec:
           port: 27017
   policyTypes:
     - Ingress
-  EOF
-  kubectl create -f ingress.yaml
+EOF
+kubectl create -f ingress.yaml
 ```{{execute}}
 
 Repeat the connectivity tests from **portal tab**.

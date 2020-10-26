@@ -27,7 +27,6 @@ spec:
       - /bin/sh
       - -c
       - sleep 600
-
 EOF
 kubectl create -f app-shell.yaml
 ```{{execute}}
