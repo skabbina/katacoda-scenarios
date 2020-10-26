@@ -43,8 +43,8 @@ EOF
 kubectl create -f unprivileged-app-shell.yaml
 ```{{execute}}
 
-Verify the pod status.
-`kubectl get pods`{{execute}}
+Verify the pod is in running state, and then Ctrl-C to break.
+`watch 'kubectl get pods'`{{execute}}
 
 Exec into the pod shell and verify the pod user.
 ```
@@ -62,4 +62,7 @@ Baseline policy also mounts root file system as read-only. This prevents any mal
 To verify, try creating a file in /tmp.
 `touch /tmp/psp-test`{{execute}}
 
-This fails as the pod's root file system has been mounted as readonly. This constraint may be too restrictive for some designs. In such a case, containers can use store emptyDir volumes for temporary date, and persistent volumes for permanent storage. 
+This fails as the pod's root file system has been mounted as readonly. This constraint may be too restrictive for some designs. In such a case, containers can use store emptyDir volumes for temporary date, and persistent volumes for permanent storage.
+
+Exit the pod shell.
+`touch /tmp/psp-test`{{execute}}

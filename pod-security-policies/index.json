@@ -1,8 +1,8 @@
 {
-  "title": "06-Pod Security Policieis",
+  "title": "06-Pod Security Policies",
   "description": "Implementing fine grained security controls using Pod Security Policies",
   "difficulty": "Intermediate",
-  "time": "20 minutes",
+  "time": "15 minutes",
   "details": {
     "steps": [
       {

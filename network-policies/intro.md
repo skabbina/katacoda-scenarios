@@ -1,4 +1,4 @@
-Objective of this scenario is to cofigure Kubernetes network policies to secure pod communication.
+Objective of this scenario is to configure Kubernetes network policies to secure pod communication.
 
 Kubernetes network policies are application level constructs that control pod communication policies. By default, Kubernetes does not have any network policies. In other words, pods are `non-isolated`. All pods can communicate with each other on exposed ports and with external systems.
 

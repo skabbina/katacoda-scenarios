@@ -85,10 +85,12 @@ EOF
 kubectl create -f portal.yaml
 ```{{execute}}
 
+Verify the pod is in running state, and then Ctrl-C to break.
+`watch 'kubectl get pods'`{{execute}}
+
 Exec into the pod shell and verify the pod user.
 ```
 kubectl exec -it portal sh
 id
 touch /tmp/psp-test
-exit
 ```{{execute}}
