@@ -1,6 +1,8 @@
 
+Start the Kubernetes cluster.
+`launch.sh`{{execute}}
 
-Verify kubernetes version and cluster status.
+Verify kubernetes version and cluster status. Note that cluster starrup may take some time.
 `kubectl version`{{execute}}
 
 Create a minimal audit policy to log all requests at metadata level.

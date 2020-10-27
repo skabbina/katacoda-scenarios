@@ -1,6 +1,9 @@
 
-Verify kubernetes cluster status.
-`kubectl cluster-info`{{execute}}
+Start the Kubernetes cluster
+`launch.sh`{{execute}}
+
+Verify kubernetes version and cluster status. Note that cluster startup may take some time.
+`kubectl version`{{execute}}
 
 By default, pods are not scheduled on master nodes. This cluster has only a single node. So remove the master node role taint, to override the default behaviour.
 `kubectl taint node controlplane node-role.kubernetes.io/master-`{{execute}}
