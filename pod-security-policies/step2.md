@@ -65,4 +65,4 @@ To verify, try creating a file in /tmp.
 This fails as the pod's root file system has been mounted as readonly. This constraint may be too restrictive for some designs. In such a case, containers can use store emptyDir volumes for temporary date, and persistent volumes for permanent storage.
 
 Exit the pod shell.
-`touch /tmp/psp-test`{{execute}}
+`exit`{{execute}}

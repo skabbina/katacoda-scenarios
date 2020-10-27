@@ -93,4 +93,5 @@ Exec into the pod shell and verify the pod user.
 kubectl exec -it portal sh
 id
 touch /tmp/psp-test
+ls -l /tmp/psp-test
 ```{{execute}}
