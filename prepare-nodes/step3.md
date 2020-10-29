@@ -15,8 +15,8 @@ Kubernetes components use below ports.
 | TCP      | Inbound   | 6443       | Kubernetes API Server  | All                  |
 | TCP      | Inbound   | 2379-2380  | etcd server client API | kube-apiserver, etcd |
 | TCP      | Inbound   | 10250      | Kubelet API            | Self, Control plane  |
-| TCP      | Inbound   | 10251      | kube-scheduler         | Self                 |
-| TCP      | Inbound   | 10252      | kube-controller-manager| Self                 |
+| TCP      | Inbound   | 10257      | kube-scheduler         | Self                 |
+| TCP      | Inbound   | 10259      | kube-controller-manager| Self                 |
 
 
 Configure firewall rules to open these ports.
@@ -24,7 +24,9 @@ Configure firewall rules to open these ports.
 ```
 firewall-cmd --zone=public --add-port=6443/tcp --permanent
 firewall-cmd --zone=public --add-port=2379-2380/tcp --permanent
-firewall-cmd --zone=public --add-port=10250-10252/tcp --permanent
+firewall-cmd --zone=public --add-port=10250/tcp --permanent
+firewall-cmd --zone=public --add-port=10257/tcp --permanent
+firewall-cmd --zone=public --add-port=10259/tcp --permanent
 firewall-cmd --reload
 ```{{execute}}
 
