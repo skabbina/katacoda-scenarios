@@ -42,6 +42,6 @@ curl -ks -H "Authorization: Bearer $TOKEN" https://${KUBERNETES_SERVICE_HOST}:${
 ```{{execute}}
 
 Exit the pod shell.
-'exit`{{execute}}
+`exit`{{execute}}
 
-If not present, `service-account-lookup` defaults to `true. Hence, ensure `service-account-lookup` is either set to `true` or removed from the API server configuration.
+If not present, `service-account-lookup` defaults to `true`. Hence, ensure `service-account-lookup` is either set to `true` or removed from the API server configuration.

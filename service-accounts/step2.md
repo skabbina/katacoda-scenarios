@@ -31,7 +31,7 @@ curl -ks https://${KUBERNETES_SERVICE_HOST}:${KUBERNETES_SERVICE_PORT}/api/v1/no
 ```{{execute}}
 
 Exit the pod shell.
-'exit`{{execute}}
+`exit`{{execute}}
 
 And delete the pod.
 ```

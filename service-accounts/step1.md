@@ -64,7 +64,7 @@ curl -ks -H "Authorization: Bearer $TOKEN" https://${KUBERNETES_SERVICE_HOST}:${
 ```{{execute}}
 
 Exit the pod shell.
-'exit`{{execute}}
+`exit`{{execute}}
 
 And delete the pod.
 ```
